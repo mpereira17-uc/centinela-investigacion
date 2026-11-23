@@ -1,0 +1,17 @@
+{
+  "alcance": "verificacion_logica_sobre_puntajes_sinteticos_sin_audio",
+  "version_motor": "1.1.0",
+  "python": "3.12.14",
+  "llamadas": 320,
+  "fragmentos_por_entrada": 2560,
+  "entradas": [
+    "referencia_sintetica",
+    "perturbada_sintetica"
+  ],
+  "comparaciones_primer_aviso": 1280,
+  "decisiones_registradas": 10240,
+  "divergencias": [],
+  "casos_logicos": 8,
+  "pruebas_logicas_ejecutadas": 8,
+  "pruebas_logicas_correctas": true
+}

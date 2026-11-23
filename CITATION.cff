@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Cite esta versión cuando reproduzca el motor y sus trazas sintéticas."
+title: "Centinela: mecanismo de alertas y comprobación sintética"
+type: software
+authors:
+  - family-names: "Pereira Uribe"
+    given-names: "Mathew"
+    affiliation: "Universidad Católica de Colombia"
+version: "1.1.0"
+date-released: 2026-11-17
+license: MIT
+keywords:
+  - ingeniería de software
+  - alertas conversacionales
+  - simulación
+abstract: "Motor de referencia y análisis de trazas sintéticas. Sin audio ni evaluación del aplicativo completo. Los datos numéricos usan CC0 1.0."

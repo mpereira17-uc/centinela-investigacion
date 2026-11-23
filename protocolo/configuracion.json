@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "naturaleza": "SIMULACION_SINTETICA_DE_TRAZAS_SIN_AUDIO",
+  "fecha_protocolo": "2026-11-16",
+  "semilla_datos": 20261116,
+  "semilla_bootstrap": 20261117,
+  "n_bootstrap": 4000,
+  "familias": 16,
+  "llamadas_por_clase_y_condicion_en_familia": 5,
+  "condiciones": ["baja_perturbacion", "alta_perturbacion"],
+  "fragmentos": 8,
+  "segundos_por_fragmento": 2,
+  "indice_inicio_riesgo": [4, 5, 6],
+  "umbral_comun": 1.15,
+  "pesos_contexto": [1.0, 0.7, 0.5],
+  "plazo_principal_s": 4.0,
+  "plazos_sensibilidad_s": [2.0, 4.0, 6.0],
+  "umbrales_sensibilidad": [1.0, 1.15, 1.3],
+  "base_puntuacion": -0.45,
+  "desviacion_familia": 0.20,
+  "desviacion_llamada": 0.32,
+  "desviacion_fragmento": 0.48,
+  "perfiles_riesgo": {
+    "dispersa": {"probabilidad": 0.55, "incrementos": {"-2": 0.40, "-1": 0.75, "0": 1.45, "1": 1.35, "2": 1.05}},
+    "concentrada": {"probabilidad": 0.30, "incrementos": {"-1": 0.15, "0": 2.25, "1": 0.35, "2": 0.20}},
+    "debil": {"probabilidad": 0.15, "incrementos": {"-1": 0.20, "0": 0.95, "1": 0.80, "2": 0.60}}
+  },
+  "legitimas": {
+    "probabilidad_ambigua": 0.45,
+    "pico_intervalo": [1.10, 1.90],
+    "proporcion_pico_siguiente": 0.22
+  },
+  "palabras_fragmento": [8, 20],
+  "errores_por_condicion": {
+    "baja_perturbacion": {"sustitucion": 0.06, "omision": 0.03, "insercion": 0.015, "latencia_extra_s": 0.0},
+    "alta_perturbacion": {"sustitucion": 0.18, "omision": 0.10, "insercion": 0.05, "latencia_extra_s": 0.30}
+  },
+  "perturbacion": {"coeficiente_wer": 1.0, "desviacion_base": 0.12, "desviacion_por_unidad_wer": 0.8},
+  "latencia_base_s": 0.35,
+  "latencia_uniforme_max_s": 0.25,
+  "margen_decision": {"ganancia_oportunidad_pp": 5.0, "incremento_max_falsas_alertas_pp": 3.0, "aumento_max_mediana_pareada_s": 1.0}
+}

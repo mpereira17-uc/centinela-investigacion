@@ -1,0 +1,24 @@
+# Centinela | Protocolo de la prueba del análisis
+
+**Fecha:** 16 de noviembre de 2026. **Versión:** 1.0.0. **Ruta:** B de la guía del tercer corte. Protocolo de trabajo, sin preregistro público. La configuración versionada se fijó antes de ejecutar el análisis de las trazas; no es un registro institucional.
+
+## Pregunta y alcance
+
+Comparar, sobre llamadas simuladas en español para escenarios colombianos, las alertas emitidas al decidir por fragmento frente a incorporar intervenciones anteriores. La prueba de este corte verifica el procedimiento de análisis con puntuaciones sintéticas, sin audio, diálogos ni usuarios. No estima la capacidad del aplicativo ni ensaya la transcripción.
+
+## Diseño y definiciones fijadas para la simulación
+
+- Unidad: llamada completa. Diseño pareado en 16 familias ficticias; cada una aporta cinco llamadas por cruce de etiqueta y condición. Se generan 320 trazas, ocho fragmentos de dos segundos por traza.
+- Variables operativas: etiqueta de riesgo/legítima; familia; baja/alta perturbación; fin de la petición de riesgo; marca de primera alerta; errores de transcripción simulados; latencia simulada. Son variables del generador, no categorías clínicas ni casos reales.
+- Contraste: fragmento F frente a contexto C con máximo tres fragmentos, pesos 1, 0,70 y 0,50 normalizados por su norma euclídea sobre el historial disponible; umbral común 1,15. Ambos reciben la misma traza. Se conservan las ventanas posteriores solo para auditoría.
+- Principal: porcentaje de llamadas de riesgo cuya primera alerta llega desde el fin de la primera petición de riesgo hasta cuatro segundos después, incluidos ambos extremos. Primarias de control: sensibilidad de cualquier primera alerta y tasa de falsas alertas. Las cifras se expresan como C menos F para las diferencias.
+- Secundarias: mediana y percentil 95 de demora entre las llamadas de riesgo detectadas; mediana de C menos F solo en las llamadas detectadas por ambas; precisión, F1, WER simulado agregado y cambio de decisión contra referencia. Los avisos anticipados, tardíos y ausentes se cuentan por separado. Ausente no equivale a cero segundos.
+- Incertidumbre de la simulación: percentiles 2,5 y 97,5 de 4000 remuestreos pareados por familia, con reemplazo, usando la semilla separada para análisis. Puntuaciones de referencia y perturbadas en el mismo conjunto. Sensibilidad descriptiva con umbrales 1,00, 1,15 y 1,30 para plazos de 2, 4 y 6 s. Los plazos alternativos pueden rebasar el horizonte de observación en inicios tardíos; se reportan como cobertura observada, sin extrapolación.
+- Los parámetros y semillas exactos quedan en `configuracion.json`. Son supuestos del banco de prueba, sin ajuste a registros observados. Se retienen todos los resultados, también si contrarían la expectativa o son imprecisos.
+- Criterio postergado para el estudio con audio: considerar C si en la prueba reservada el límite inferior del intervalo para la diferencia de oportunidad supera +5 puntos porcentuales, el límite superior para el aumento de falsas alertas no supera +3 puntos y el aumento de la mediana pareada no supera 1 s. Son márgenes propuestos para validación con el director antes de acceder a la reserva; no se usa la simulación para elegir estrategia.
+
+## Estudio previsto y regla de parada
+
+La prueba preliminar de unas 40 llamadas simuladas (20 por etiqueta) orientará la anotación, la reproducción y la planificación. Sus guiones quedan fuera de la reserva. A partir de la meta inicial de unas 500 llamadas, se propone reservar 240 (120 por clase y al menos 12 familias completas distintas), y asignar las restantes a entrenamiento y validación por familia. Con 120 por clase, el semiancho nominal al 95 % para una proporción en el escenario p=0,5 es 8,9 puntos porcentuales asumiendo independencia; el agrupamiento puede ampliarlo. Es una meta de precisión descriptiva, no un cálculo de potencia para declarar superioridad. Si no se alcanzan al menos 12 familias y 120 observaciones por clase, se reportarán los conteos alcanzados y el análisis se tratará como exploratorio. El n definitivo se fijará tras la preliminar, antes de abrir la reserva, considerando concordancia y correlación por familia. La guía operativa, las versiones de Whisper y del clasificador, el límite de contexto, los parámetros de audio, el equipo y el plazo deberán registrarse antes de la evaluación. No se ampliará ni reajustará la reserva en función de resultados favorables.
+
+Se separarán familias, variantes y voces reutilizadas; se ajustarán vocabulario y regresión logística en entrenamiento, y umbral común y límite de contexto en validación. Un desbalance de escenas, cambios de versión o fallas de ejecución se anotarán con fecha, causa y efecto. Se evitará capturar comunicaciones reales. La simulación de este corte no ejecuta las etapas de audio, entrenamiento, validación ni prueba del aplicativo.
