@@ -19,9 +19,15 @@ cd figuras
 python figuras.py
 ```
 
-## Generador y trazas
+## Generador de las 320 trazas
 
-El generador de las 320 trazas (semillas 20261116 y 20261117), el motor de referencia y sus pruebas forman el paquete del artículo. Aún no tiene DOI; se puede pedir a mpereira17@ucatolica.edu.co.
+`codigo/simular.py` genera y evalúa las 320 llamadas sintéticas del artículo (16 familias, 8 fragmentos de 2 s, semillas 20261116 y 20261117). Solo usa la biblioteca estándar de Python.
+
+```
+python codigo/simular.py --salida prueba_nueva
+```
+
+Necesita `protocolo/configuracion.json` (parámetros, perfiles y semillas). Ese archivo, el motor de alertas, las pruebas y los CSV de salida se pueden pedir a mpereira17@ucatolica.edu.co mientras se suben.
 
 ## Licencias
 
