@@ -5,6 +5,12 @@ Mathew Pereira Uribe · Director: Carlos Mauricio Blanco Muñoz · Ingeniería d
 
 > **Ruta B: protocolo con prueba de análisis simulada.** Todas las cifras salen de 320 llamadas **simuladas**. No son llamadas reales ni miden el desempeño del aplicativo.
 
+## Diseño de la aplicación
+
+Así se verán las pantallas de Centinela (prototipo de diseño; no forman parte de la prueba con llamadas inventadas).
+
+<img src="aplicacion/inicio-movil.png" alt="Pantalla de inicio" width="240"> <img src="aplicacion/chequeo-movil.png" alt="Tres preguntas durante una llamada" width="240"> <img src="aplicacion/aviso-critico-movil.png" alt="Aviso de riesgo crítico" width="240">
+
 | Carpeta | Contenido |
 |---|---|
 | `articulo/` | Artículo en PDF |
