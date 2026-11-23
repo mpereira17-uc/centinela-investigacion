@@ -11,6 +11,14 @@ Así se verán las pantallas de Centinela (prototipo de diseño; no forman parte
 
 <img src="aplicacion/inicio-movil.png" alt="Pantalla de inicio" width="240"> <img src="aplicacion/chequeo-movil.png" alt="Tres preguntas durante una llamada" width="240"> <img src="aplicacion/aviso-critico-movil.png" alt="Aviso de riesgo crítico" width="240">
 
+## Qué mostró la prueba
+
+Con 320 llamadas inventadas por computador, recordar lo dicho en la llamada dio menos avisos falsos (de 24 a 8), pero también menos avisos a tiempo (de 75 a 59), de 160 llamadas cada uno.
+
+<img src="figuras/fig2_conteos.png" alt="Avisos por forma de decidir, con llamadas inventadas" width="720">
+
+## Qué hay aquí
+
 | Carpeta | Contenido |
 |---|---|
 | `articulo/` | Artículo en PDF |
